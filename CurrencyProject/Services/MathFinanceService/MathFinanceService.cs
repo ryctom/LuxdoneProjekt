@@ -14,7 +14,9 @@ namespace CurrencyProject.Services.MathFinanceService
         public decimal GetStandardDerivation(IEnumerable<decimal?> data)
         {
             var average = data.Average().GetValueOrDefault();
+
             var sumOfSquaresOfDifferences = data.Select(val => (val - average) * (val - average)).Sum();
+
             return (decimal)Math.Sqrt((double)sumOfSquaresOfDifferences / data.Count());
         }
     }

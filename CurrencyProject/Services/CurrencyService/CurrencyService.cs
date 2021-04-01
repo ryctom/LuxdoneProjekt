@@ -25,12 +25,12 @@ namespace CurrencyProject.Services.CurrencyService
         {
             var listOfCurrency = await _dataService.GetCurrencyBeetweenDatesAsync(startTime, endTime, code);
 
-            var mids = listOfCurrency.Select(item => item.Mid);
+            var bids = listOfCurrency.Select(item => item.Bid);
             var asks = listOfCurrency.Select(item => item.Ask);
 
             return new CurrencySummary
             {
-                AveragePrice = _mathFinanceService.GetAverage(mids),
+                AveragePrice = _mathFinanceService.GetAverage(bids),
                 StandardDerivation = _mathFinanceService.GetStandardDerivation(asks)
             };
         }

@@ -8,7 +8,7 @@ namespace CurrencyProject.Model
 
         public DateTime? EffectiveDate { get; set; }
 
-        public decimal? Mid { get; set; }
+        public decimal? Bid { get; set; }
 
         public decimal? Ask { get; set; }
     }
