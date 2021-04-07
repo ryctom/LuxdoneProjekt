@@ -20,7 +20,6 @@ This service  allows to get currecy data from NBP external service.
 
 * Swagger has been configured to manage application endpoints
 * After starting the application, click on get endpoint (see screen bellow).
- 
 
 * ![image](https://user-images.githubusercontent.com/18561534/113942826-cc9a8500-9801-11eb-8478-5318295f862c.png)
 
