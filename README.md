@@ -11,7 +11,7 @@ This service  allows to get currecy data from NBP external service.
 * .NET Core SDK
 
 ## How To Run
-
+* Download solution
 * Open solution in Visual Studio 2017
 * Set .Web project as Startup Project and build the project.
 * Run the application - press ISS Express 
