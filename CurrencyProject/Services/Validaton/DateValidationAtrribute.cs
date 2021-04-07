@@ -26,18 +26,18 @@ namespace CurrencyProject.Services.Validaton
 
         public static bool IsValidDateFormat(string value)
         {
-            DateTime tempDate;
-
-            bool validDate = DateTime.TryParseExact(value,
-                _format, 
-                DateTimeFormatInfo.InvariantInfo, 
-                DateTimeStyles.None, 
-                out tempDate);
+            var validDate = DateTime.TryParseExact(value,
+                _format,
+                DateTimeFormatInfo.InvariantInfo,
+                DateTimeStyles.None,
+                out DateTime tempDate);
 
             if (validDate)
+            {
                 return true;
-            else
-                return false;
+            }
+
+            return false;
         }
     }
 }

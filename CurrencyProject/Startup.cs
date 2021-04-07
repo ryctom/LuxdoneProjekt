@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CurrencyProject.HttpClients;
+﻿using CurrencyProject.HttpClients;
 using CurrencyProject.Services.CurrencyService;
 using CurrencyProject.Services.DataService;
 using CurrencyProject.Services.MathFinanceService;
 using CurrencyProject.Services.SerializeService;
-using CurrencyProject.Services.Validaton;
 using CurrencyProject.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
