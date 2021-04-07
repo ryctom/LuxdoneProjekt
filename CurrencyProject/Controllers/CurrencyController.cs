@@ -1,4 +1,5 @@
 ﻿using CurrencyProject.Model;
+using CurrencyProject.Parameters;
 using CurrencyProject.Services.CurrencyService;
 using CurrencyProject.Services.Validaton;
 using Microsoft.AspNetCore.Mvc;
@@ -11,23 +12,17 @@ namespace CurrencyProject.Controllers
     public class CurrencyController : Controller
     {
         private readonly ICurrencyService _infoService;
-        private readonly IValidation _validation;
-
+      
         public CurrencyController(
-            ICurrencyService infoService,
-            IValidation validation
-            )
+            ICurrencyService infoService)
         {
-            _infoService = infoService;
-            _validation = validation;
+            _infoService = infoService;          
         }
 
-        [HttpGet("{code}/{startDate}/{endDate}")]
-        public async Task<CurrencySummary> Get(string code, string startDate, string endDate)
-        {
-            _validation.Validate(code, startDate, endDate);
-
-            return await _infoService.GetCurrencyBeetweenDatesAsync(code, startDate, endDate);
+        [HttpGet("{Code}/{StartDate}/{EndDate}")]
+        public async Task<CurrencySummary> Get([FromRoute] CurrencyQueryParameter query)
+        {           
+            return await _infoService.GetCurrencyBeetweenDatesAsync(query.Code, query.StartDate, query.EndDate);
         }
     }
 }

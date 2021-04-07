@@ -19,6 +19,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
 namespace CurrencyProject
@@ -40,11 +41,16 @@ namespace CurrencyProject
             services.AddScoped<ICurrencyService, CurrencyService>();
             services.AddScoped<IMathFinanceService, MathFinanceService>();
             services.AddScoped<IDeserializationService, JsonService>();
-            services.AddScoped<IValidation, InputParametersValidator>();
-
+    
             services.AddScoped<HttpCurrencyClient>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "AbpZeroTemplate API", Version = "v1" });
+                options.DocInclusionPredicate((docName, description) => true);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -62,7 +68,6 @@ namespace CurrencyProject
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -76,9 +81,15 @@ namespace CurrencyProject
                 await context.Response.WriteAsync(result);
             }));
 
-
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Currency service");
+            });
         }
     }
 }
