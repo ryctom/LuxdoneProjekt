@@ -27,7 +27,6 @@ This service  allows to get currecy data from NBP external service.
 
 ![image](https://user-images.githubusercontent.com/18561534/113943474-10da5500-9803-11eb-81ca-d434b567517a.png)
 
-
 * Click on execute and get currency data.
 
 ## Alternatively you can insert the request into any browser
