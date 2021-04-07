@@ -1,7 +1,6 @@
 ﻿using CurrencyProject.Model;
 using CurrencyProject.Parameters;
 using CurrencyProject.Services.CurrencyService;
-using CurrencyProject.Services.Validaton;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
